@@ -1,0 +1,36 @@
+Sum of all odd factors of numbers in the range [l, r]
+Given a range [l, r], the task is to find the sum of all the odd factors of the numbers from the given range.
+
+Input: l = 6, r = 8
+Output: 32
+factors(6) = 1, 2, 3, 6, oddfactors(6) = 1, 3 sum_Odd_Factors(6) = 1 + 3 = 4
+factors(7) = 1, 7, oddfactors(6) = 1 7, sum_Odd_Factors(7) = 1 + 7 = 8
+factors(8) = 1, 2, 4, 8, oddfactors(6) = 1, sum_Odd_Factors(8) = 1 = 1
+Therefore sum of all odd factors = 4 + 8 + 1 = 13
+
+MAX = 100001; 
+  
+prefix = [0] * MAX; 
+  
+
+def sieve_modified(): 
+  
+    for i in range(1, MAX, 2): 
+   
+        for j in range(i, MAX, i): 
+            prefix[j] += i; 
+  
+   
+    for i in range(1, MAX): 
+        prefix[i] += prefix[i - 1]; 
+   
+def sumOddFactors(L, R): 
+  
+    return (prefix[R] - prefix[L - 1]); 
+  
+# Driver code 
+sieve_modified(); 
+l = 6; 
+r = 10; 
+print(sumOddFactors(l, r)); 
+  
