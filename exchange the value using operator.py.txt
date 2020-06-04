@@ -1,0 +1,8 @@
+Python Program to Exchange the Values of Two Numbers using ^ (exclusive or operator)
+
+x=02
+y=05
+x = x ^ y;
+y = x ^ y;
+x = x ^ y;
+print ("After Swapping: x = ", x, " y =", y)
